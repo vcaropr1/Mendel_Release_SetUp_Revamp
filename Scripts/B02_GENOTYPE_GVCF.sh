@@ -2,6 +2,8 @@
 #$ -q rnd.q,prod.q,test.q
 #$ -cwd
 #$ -V
+#$ -M vcaropr1@jhmi.edu
+#$ -m beas
 #$ -p -1000
 
 JAVA_1_7=$1
