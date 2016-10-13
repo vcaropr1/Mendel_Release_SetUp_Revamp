@@ -13,18 +13,34 @@ CORE_PATH=$6
 PROJECT=$7
 PREFIX=$8
 
-$JAVA_1_7/java -jar $GATK_DIR/GenomeAnalysisTK.jar \
--T SelectVariants \
--R $REF_GENOME \
---variant $CORE_PATH/$PROJECT/MULTI_SAMPLE/$PREFIX".HC.SNP.INDEL.VQSR.vcf" \
---restrictAllelesTo MULTIALLELIC \
---disable_auto_index_creation_and_locking_when_reading_rods \
--et NO_ET \
--K $KEY \
--o $CORE_PATH/$PROJECT/MULTI_SAMPLE/$PREFIX".HC.SNP.INDEL.VQSR.COMMON.MULTIALLELIC.vcf"
 
+CMD=$JAVA_1_7'/java -jar'
+CMD=$CMD' '$GATK_DIR'/GenomeAnalysisTK.jar'
+CMD=$CMD' -T SelectVariants'
+CMD=$CMD' -R '$REF_GENOME
+CMD=$CMD' --variant '$CORE_PATH'/'$PROJECT'/MULTI_SAMPLE/'$PREFIX'.HC.SNP.INDEL.VQSR.vcf'
+CMD=$CMD' --restrictAllelesTo MULTIALLELIC'
+CMD=$CMD' --disable_auto_index_creation_and_locking_when_reading_rods'
+CMD=$CMD' -et NO_ET'
+CMD=$CMD' -K '$KEY
+CMD=$CMD' -o '$CORE_PATH'/'$PROJECT'/MULTI_SAMPLE/'$PREFIX'.HC.SNP.INDEL.VQSR.MULTIALLELIC.vcf'
+
+echo $CMD >> $CORE_PATH/$PROJECT/command_lines.txt
+echo >> $CORE_PATH/$PROJECT/command_lines.txt
+echo $CMD | bash
 
 #COMBINE THESE TWO STEPS
+
+# $JAVA_1_7/java -jar $GATK_DIR/GenomeAnalysisTK.jar \
+# -T SelectVariants \
+# -R $REF_GENOME \
+# --variant $CORE_PATH/$PROJECT/MULTI_SAMPLE/$PREFIX".HC.SNP.INDEL.VQSR.vcf" \
+# --restrictAllelesTo MULTIALLELIC \
+# --disable_auto_index_creation_and_locking_when_reading_rods \
+# -et NO_ET \
+# -K $KEY \
+# -o $CORE_PATH/$PROJECT/MULTI_SAMPLE/$PREFIX".HC.SNP.INDEL.VQSR.MULTIALLELIC.vcf"
+
 
 # $JAVA_1_7/java -jar $GATK_DIR/GenomeAnalysisTK.jar \
 # -T SelectVariants \
