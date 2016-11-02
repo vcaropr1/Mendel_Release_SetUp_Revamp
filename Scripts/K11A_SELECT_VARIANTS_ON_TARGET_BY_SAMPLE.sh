@@ -13,7 +13,7 @@ REF_GENOME=$4
 CORE_PATH=$5
 OUT_PROJECT=$6
 SM_TAG=$7
-PREFIX=$8
+TARGET_BED=$8
 
 CMD=$JAVA_1_7'/java -jar'
 CMD=$CMD' '$GATK_DIR'/GenomeAnalysisTK.jar'

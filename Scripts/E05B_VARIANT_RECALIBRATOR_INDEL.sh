@@ -47,7 +47,7 @@ CMD=$CMD' -recalFile '$CORE_PATH'/'$PROJECT'/MULTI_SAMPLE/'$PREFIX'.HC.INDEL.rec
 CMD=$CMD' -tranchesFile '$CORE_PATH'/'$PROJECT'/MULTI_SAMPLE/'$PREFIX'.HC.INDEL.tranches'
 CMD=$CMD' --disable_auto_index_creation_and_locking_when_reading_rods'
 CMD=$CMD' -et NO_ET'
-CMD=$CMD' -K $KEY'
+CMD=$CMD' -K '$KEY
 CMD=$CMD' -rscriptFile '$CORE_PATH'/'$PROJECT'/MULTI_SAMPLE/'$PREFIX'.HC.INDEL.R'
 
 echo $CMD >> $CORE_PATH/$PROJECT/command_lines.txt

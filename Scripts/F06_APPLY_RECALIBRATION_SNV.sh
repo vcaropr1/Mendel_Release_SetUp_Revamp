@@ -11,9 +11,9 @@ GATK_DIR=$2
 KEY=$3
 REF_GENOME=$4
 
-CORE_PATH=$6
-PROJECT=$7
-PREFIX=$8
+CORE_PATH=$5
+PROJECT=$6
+PREFIX=$7
 
 
 CMD=$JAVA_1_7'/java -jar'
@@ -27,7 +27,7 @@ CMD=$CMD' -tranchesFile '$CORE_PATH'/'$PROJECT'/MULTI_SAMPLE/'$PREFIX'.HC.SNV.tr
 CMD=$CMD' --disable_auto_index_creation_and_locking_when_reading_rods'
 CMD=$CMD' -mode SNP'
 CMD=$CMD' -et NO_ET'
-CMD=$CMD' -K $KEY'
+CMD=$CMD' -K '$KEY
 CMD=$CMD' -o '$CORE_PATH'/'$PROJECT'/MULTI_SAMPLE/'$PREFIX'.HC.SNV.VQSR.vcf'
 
 echo $CMD >> $CORE_PATH/$PROJECT/command_lines.txt

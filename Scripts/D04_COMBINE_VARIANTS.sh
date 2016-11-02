@@ -18,7 +18,7 @@ CMD=$CMD' -T CombineVariants'
 CMD=$CMD' -R '$REF_GENOME
 CMD=$CMD' --disable_auto_index_creation_and_locking_when_reading_rods'
 CMD=$CMD' -et NO_ET'
-CMD=$CMD' -K $KEY'
+CMD=$CMD' -K '$KEY
 CMD=$CMD' --variant '$CORE_PATH'/'$PROJECT'/MULTI_SAMPLE/'$PREFIX'.1.normal.vcf'
 CMD=$CMD' --variant '$CORE_PATH'/'$PROJECT'/MULTI_SAMPLE/'$PREFIX'.2.normal.vcf'
 CMD=$CMD' --variant '$CORE_PATH'/'$PROJECT'/MULTI_SAMPLE/'$PREFIX'.3.normal.vcf'
@@ -43,7 +43,7 @@ CMD=$CMD' --variant '$CORE_PATH'/'$PROJECT'/MULTI_SAMPLE/'$PREFIX'.21.normal.vcf
 CMD=$CMD' --variant '$CORE_PATH'/'$PROJECT'/MULTI_SAMPLE/'$PREFIX'.22.normal.vcf'
 CMD=$CMD' --variant '$CORE_PATH'/'$PROJECT'/MULTI_SAMPLE/'$PREFIX'.X.normal.vcf'
 CMD=$CMD' --variant '$CORE_PATH'/'$PROJECT'/MULTI_SAMPLE/'$PREFIX'.Y.normal.vcf'
-CMD=$CMD' -out '$CORE_PATH'/'$PROJECT'/MULTI_SAMPLE/'$PREFIX'.raw.HC.vcf'
+CMD=$CMD' -o '$CORE_PATH'/'$PROJECT'/MULTI_SAMPLE/'$PREFIX'.raw.HC.vcf'
 
 echo $CMD >> $CORE_PATH/$PROJECT/command_lines.txt
 echo >> $CORE_PATH/$PROJECT/command_lines.txt
