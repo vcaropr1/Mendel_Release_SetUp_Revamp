@@ -46,12 +46,15 @@ REF_GENOME=${PROJECT_INFO_ARRAY[0]}
 PROJECT_DBSNP=${PROJECT_INFO_ARRAY[1]}
 }
 
-# CREATE_GVCF_LIST(){
-# TOTAL_SAMPLES=(`awk 'BEGIN{FS=","} NR>1{print $1,$8}' $SAMPLE_SHEET | sort | uniq | wc -l`)
-# awk 'BEGIN{FS=","} NR>1{print $1,$8}' $SAMPLE_SHEET | sort | uniq | awk 'BEGIN{OFS="/"}{print "'$CORE_PATH'",$1,"GVCF",$2".genome.vcf"}' \
-# >| $CORE_PATH'/'$PROJECT'/'$TOTAL_SAMPLES'.samples.gvcf.list'
-# GVCF_LIST=(`echo $CORE_PATH'/'$PROJECT'/'$TOTAL_SAMPLES'.samples.gvcf.list'`)
-# }
+CREATE_GVCF_LIST(){
+OLD_GVCF_LIST=$(ls -tr $CORE_PATH/$PROJECT/*.samples.ReSeq.JH2027.list | tail -n1)
+OLD_SAMPLE_COUNT=$(wc -l $OLD_GVCF_LIST | awk '{print $1}')
+NEW_SAMPLE_COUNT=(`awk 'BEGIN{FS=","} NR>1{print $1,$8}' $SAMPLE_SHEET | sort | uniq | wc -l`)
+TOTAL_SAMPLES=(`expr $OLD_SAMPLE_COUNT + $NEW_SAMPLE_COUNT`)
+(cat $OLD_GVCF_LIST ; awk 'BEGIN{FS=","} NR>1{print $1,$8}' $SAMPLE_SHEET | sort | uniq | awk 'BEGIN{OFS="/"}{print "'$CORE_PATH'",$1,"GVCF",$2".genome.vcf"}') \
+>| $CORE_PATH'/'$PROJECT'/'$PROJECT'.'$TOTAL_SAMPLES'.samples.ReSeq.JH2027.gvcf.list'
+GVCF_LIST=(`echo $CORE_PATH'/'$PROJECT'.'$TOTAL_SAMPLES'.samples.ReSeq.JH2027.gvcf.list'`)
+}
 
 COMBINE_GVCF(){
 echo \
@@ -440,6 +443,7 @@ echo \
 ##########################################################################
 
 CREATE_PROJECT_INFO_ARRAY
+CREATE_GVCF_LIST
 
 for CHROMOSOME in {{1..22},{X,Y}};
  do

@@ -4,8 +4,6 @@
 #$ -V
 #$ -p -1000
 
-source /u01/home/khetrick/bashrc_change_R
-
 JAVA_1_7=$1
 GATK_DIR=$2
 KEY=$3
