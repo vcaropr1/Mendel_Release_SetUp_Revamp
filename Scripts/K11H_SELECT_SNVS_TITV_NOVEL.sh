@@ -26,7 +26,6 @@ CMD=$CMD' -R '$REF_GENOME
 CMD=$CMD' -ef'
 CMD=$CMD' -env'
 CMD=$CMD' -L '$TITV_BED
-CMD=$CMD' --excludeFiltered'
 CMD=$CMD' --discordance '$KNOWN_SNPS
 CMD=$CMD' -selectType SNP'
 CMD=$CMD' --variant '$CORE_PATH'/'$OUT_PROJECT'/VCF/RELEASE/FILTERED_ON_BAIT/'$SM_TAG'_MS_OnBait.vcf'

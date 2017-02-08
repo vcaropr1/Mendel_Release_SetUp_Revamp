@@ -14,7 +14,7 @@
 #$ -V
 
 # tell sge to submit at this priority setting
-#$ -p -1000
+#$ -p -10
 
 # tell sge to output both stderr and stdout to the same file
 #$ -j y
@@ -29,7 +29,7 @@ KEY=$4
 
 CORE_PATH=$5
 PROJECT=$6
-GVCF_LIST=$7
+GVCF_LIST_NAME=$7
 PREFIX=$8
 BED_FILE=$9
 
@@ -42,12 +42,12 @@ CMD=$JAVA_1_7'/java -jar'
 CMD=$CMD' '$GATK_DIR'/GenomeAnalysisTK.jar'
 CMD=$CMD' -T CombineGVCFs'
 CMD=$CMD' -R '$REF_GENOME
-CMD=$CMD' --variant '$GVCF_LIST
+CMD=$CMD' --variant '$CORE_PATH'/'$PROJECT'/TEMP/GVCF_LIST_SPLIT/'$GVCF_LIST_NAME'.list'
 CMD=$CMD' -L '$CORE_PATH'/'$PROJECT'/TEMP/BED_FILE_SPLIT/'$BED_FILE'.bed'
 CMD=$CMD' --disable_auto_index_creation_and_locking_when_reading_rods'
 CMD=$CMD' -et NO_ET'
 CMD=$CMD' -K '$KEY
-CMD=$CMD' -o '$CORE_PATH'/'$PROJECT'/GVCF/AGGREGATE/'$PREFIX'.'$BED_FILE'.genome.vcf'
+CMD=$CMD' -o '$CORE_PATH'/'$PROJECT'/TEMP/'$PREFIX'.'$GVCF_LIST_NAME'.'$BED_FILE'.genome.vcf'
 
 echo $CMD >> $CORE_PATH/$PROJECT/command_lines.txt
 echo >> $CORE_PATH/$PROJECT/command_lines.txt
