@@ -1,7 +1,7 @@
 #$ -S /bin/bash
 #$ -q rnd.q,prod.q,test.q
 #$ -cwd
-#$ -p -1000
+#$ -p -50
 #$ -V
 
 

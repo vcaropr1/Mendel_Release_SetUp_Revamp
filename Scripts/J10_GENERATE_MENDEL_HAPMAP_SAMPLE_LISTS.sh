@@ -2,7 +2,7 @@
 #$ -q rnd.q,prod.q,test.q
 #$ -cwd
 #$ -V
-#$ -p -1000
+#$ -p -50
 
 CORE_PATH=$1
 PROJECT=$2

@@ -4,7 +4,7 @@
 #$ -V
 #$ -M vcaropr1@jhmi.edu
 #$ -m beas
-#$ -p -1000
+#$ -p -50
 
 JAVA_1_7=$1
 GATK_DIR=$2

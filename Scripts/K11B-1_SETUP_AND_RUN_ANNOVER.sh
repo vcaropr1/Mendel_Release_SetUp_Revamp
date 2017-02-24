@@ -5,7 +5,7 @@
 #$ -S /bin/bash
 
 # tell sge to submit any of these queue when available
-#$ -q rnd.q,test.q
+#$ -q prod.q,rnd.q,test.q
 
 # tell sge that you are in the users current working directory
 #$ -cwd
@@ -14,7 +14,7 @@
 #$ -V
 
 # tell sge to submit at this priority setting
-#$ -p -1000
+#$ -p -50
 
 # tell sge to output both stderr and stdout to the same file
 #$ -j y

@@ -2,7 +2,7 @@
 #$ -q rnd.q,prod.q,test.q
 #$ -cwd
 #$ -V
-#$ -p -1000
+#$ -p -50
 
 export PATH=.:/isilon/sequencing/peng/softwares/R-3.1.1/bin:$PATH
 

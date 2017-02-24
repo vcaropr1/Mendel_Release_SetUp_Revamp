@@ -2,7 +2,7 @@
 #$ -q rnd.q,prod.q,test.q
 #$ -cwd
 #$ -V
-#$ -p -1000
+#$ -p -50
 
 JAVA_1_7=$1
 GATK_3_1_1_DIR=$2
