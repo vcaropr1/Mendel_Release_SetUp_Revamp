@@ -29,7 +29,7 @@ CMD=$CMD' -selectType SYMBOLIC'
 CMD=$CMD' --variant '$CORE_PATH'/'$IN_PROJECT'/MULTI_SAMPLE/'$PREFIX'.BEDsuperset.VQSR.vcf'
 CMD=$CMD' -o '$CORE_PATH'/'$IN_PROJECT'/MULTI_SAMPLE/VARIANT_SUMMARY_STAT_VCF/'$PREFIX'.BEDsuperset.VQSR.INDEL.ALL.SAMPLES.ONLY.vcf'
 
-echo $CMD >> $CORE_PATH/$PROJECT/command_lines.txt
-echo >> $CORE_PATH/$PROJECT/command_lines.txt
+echo $CMD >> $CORE_PATH/$IN_PROJECT/command_lines.txt
+echo >> $CORE_PATH/$IN_PROJECT/command_lines.txt
 echo $CMD | bash
 

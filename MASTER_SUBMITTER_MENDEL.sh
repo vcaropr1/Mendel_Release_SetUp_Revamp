@@ -1,8 +1,8 @@
 #!/bin/bash
 
-PROJECT=$1
-SAMPLE_SHEET=$2
-PREFIX=$3
+PROJECT=$1 # The project folder that is housing all the multi-sample goods For now : M_Valle_MendelianDisorders_SeqWholeExome_120511_GATK_3_3-0
+SAMPLE_SHEET=$2 # MS sample sheet
+PREFIX=$3 # Name you want all the multi-sample files to be names
 NUMBER_OF_BED_FILES=$4
 # GVCF_LIST=$5
 if [[ $NUMBER_OF_BED_FILES -lt 100 ]]
@@ -55,9 +55,6 @@ PROJECT_DBSNP=${PROJECT_INFO_ARRAY[1]}
 
 CREATE_GVCF_LIST(){
 OLD_GVCF_LIST=$(ls -tr $CORE_PATH/$PROJECT/*.samples.ReSeq.JH2027.list | tail -n1)
-OLD_SAMPLE_COUNT=$(wc -l $OLD_GVCF_LIST | awk '{print $1}')
-NEW_SAMPLE_COUNT=(`awk 'BEGIN{FS=","} NR>1{print $1,$8}' $SAMPLE_SHEET | sort | uniq | wc -l`)
-# TOTAL_SAMPLES=(`expr $OLD_SAMPLE_COUNT + $NEW_SAMPLE_COUNT`)
 TOTAL_SAMPLES=(`(cat $OLD_GVCF_LIST ; awk 'BEGIN{FS=","} NR>1{print $1,$8}' $SAMPLE_SHEET | sort | uniq | awk 'BEGIN{OFS="/"}{print "'$CORE_PATH'"$1,"GVCF",$2".genome.vcf"}') | sort | uniq | wc -l`)
 (cat $OLD_GVCF_LIST ; awk 'BEGIN{FS=","} NR>1{print $1,$8}' $SAMPLE_SHEET | sort | uniq | awk 'BEGIN{OFS="/"}{print "'$CORE_PATH'"$1,"GVCF",$2".genome.vcf"}') | sort | uniq \
 >| $CORE_PATH'/'$PROJECT'/'$TOTAL_SAMPLES'.samples.ReSeq.JH2027.list'

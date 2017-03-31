@@ -29,7 +29,7 @@ CMD=$CMD' --exclude_sample_file '$HAP_MAP_SAMPLE_LIST
 CMD=$CMD' --variant '$CORE_PATH'/'$IN_PROJECT'/MULTI_SAMPLE/'$PREFIX'.BEDsuperset.VQSR.vcf'
 CMD=$CMD' -o '$CORE_PATH'/'$IN_PROJECT'/MULTI_SAMPLE/VARIANT_SUMMARY_STAT_VCF/'$PREFIX'.BEDsuperset.VQSR.SNP.MENDEL.SAMPLES.ONLY.PASS.vcf'
 
-echo $CMD >> $CORE_PATH/$PROJECT/command_lines.txt
-echo >> $CORE_PATH/$PROJECT/command_lines.txt
+echo $CMD >> $CORE_PATH/$IN_PROJECT/command_lines.txt
+echo >> $CORE_PATH/$IN_PROJECT/command_lines.txt
 echo $CMD | bash
 

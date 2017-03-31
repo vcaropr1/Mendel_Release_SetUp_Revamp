@@ -16,12 +16,12 @@ CMD1=$CMD1' >| '$CORE_PATH'/'$OUT_PROJECT'/HC_BAM/'$SM_TAG'_MS_OnBait.HC.vcf.gz'
 
 CMD2=$TABIX_DIR'/tabix -p vcf -f '$CORE_PATH'/'$OUT_PROJECT'/HC_BAM/'$SM_TAG'_MS_OnBait.HC.vcf.gz'
 
-echo $CMD1 >> $CORE_PATH/$PROJECT/command_lines.txt
-echo >> $CORE_PATH/$PROJECT/command_lines.txt
+echo $CMD1 >> $CORE_PATH/$OUT_PROJECT/command_lines.txt
+echo >> $CORE_PATH/$OUT_PROJECT/command_lines.txt
 echo $CMD1 | bash
 
-echo $CMD2 >> $CORE_PATH/$PROJECT/command_lines.txt
-echo >> $CORE_PATH/$PROJECT/command_lines.txt
+echo $CMD2 >> $CORE_PATH/$OUT_PROJECT/command_lines.txt
+echo >> $CORE_PATH/$OUT_PROJECT/command_lines.txt
 echo $CMD2 | bash
 
 # $TABIX_DIR/bgzip -c $CORE_PATH/$OUT_PROJECT/HC_BAM/$SM_TAG"_MS_OnBait.HC.vcf" \

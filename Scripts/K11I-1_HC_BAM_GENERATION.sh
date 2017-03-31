@@ -31,8 +31,8 @@ CMD=$CMD' --bamOutput '$CORE_PATH'/'$OUT_PROJECT'/HC_BAM/'$SM_TAG'_MS_OnBait.HC.
 CMD=$CMD' -pairHMM VECTOR_LOGLESS_CACHING'
 CMD=$CMD' -o '$CORE_PATH'/'$OUT_PROJECT'/HC_BAM/'$SM_TAG'_MS_OnBait.HC.vcf'
 
-echo $CMD >> $CORE_PATH/$PROJECT/command_lines.txt
-echo >> $CORE_PATH/$PROJECT/command_lines.txt
+echo $CMD >> $CORE_PATH/$OUT_PROJECT/command_lines.txt
+echo >> $CORE_PATH/$OUT_PROJECT/command_lines.txt
 echo $CMD | bash
 
 # $JAVA_1_7/java -jar $GATK_DIR/GenomeAnalysisTK.jar \

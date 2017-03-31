@@ -37,8 +37,8 @@ CMD=$CMD' --keepOriginalAC'
 CMD=$CMD' --variant '$CORE_PATH'/'$IN_PROJECT'/MULTI_SAMPLE/'$PREFIX'.BEDsuperset.VQSR.vcf'
 CMD=$CMD' -o '$CORE_PATH'/'$OUT_PROJECT'/VCF/RELEASE/FILTERED_ON_BAIT/'$SM_TAG'_MS_OnBait.vcf'
 
-echo $CMD >> $CORE_PATH/$PROJECT/command_lines.txt
-echo >> $CORE_PATH/$PROJECT/command_lines.txt
+echo $CMD >> $CORE_PATH/$IN_PROJECT/command_lines.txt
+echo >> $CORE_PATH/$IN_PROJECT/command_lines.txt
 echo $CMD | bash
 
 # $JAVA_1_7/java -jar $GATK_DIR/GenomeAnalysisTK.jar \
