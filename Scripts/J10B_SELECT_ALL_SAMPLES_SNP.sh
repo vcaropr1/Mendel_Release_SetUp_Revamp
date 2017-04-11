@@ -29,4 +29,3 @@ CMD=$CMD' -o '$CORE_PATH'/'$IN_PROJECT'/MULTI_SAMPLE/VARIANT_SUMMARY_STAT_VCF/'$
 echo $CMD >> $CORE_PATH/$IN_PROJECT/command_lines.txt
 echo >> $CORE_PATH/$IN_PROJECT/command_lines.txt
 echo $CMD | bash
-

@@ -40,17 +40,3 @@ CMD=$CMD' -o '$CORE_PATH'/'$OUT_PROJECT'/VCF/RELEASE/FILTERED_ON_BAIT/'$SM_TAG'_
 echo $CMD >> $CORE_PATH/$IN_PROJECT/command_lines.txt
 echo >> $CORE_PATH/$IN_PROJECT/command_lines.txt
 echo $CMD | bash
-
-# $JAVA_1_7/java -jar $GATK_DIR/GenomeAnalysisTK.jar \
-# -T SelectVariants \
-# --disable_auto_index_creation_and_locking_when_reading_rods \
-# -et NO_ET \
-# -K $KEY \
-# -R $REF_GENOME \
-# -sn $SM_TAG \
-# -ef \
-# -env \
-# --keepOriginalAC \
-# --variant $CORE_PATH/$IN_PROJECT/MULTI_SAMPLE/$PREFIX".BEDsuperset.VQSR.vcf" \
-# -o $CORE_PATH/$OUT_PROJECT/VCF/RELEASE/FILTERED_ON_BAIT/$SM_TAG"_MS_OnBait.vcf"
-

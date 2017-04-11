@@ -16,7 +16,3 @@ CMD=$CMD' >| '$CORE_PATH'/'$OUT_PROJECT'/REPORTS/TI_TV_MS/'$SM_TAG'_Novel_.titv.
 echo $CMD >> $CORE_PATH/$OUT_PROJECT/command_lines.txt
 echo >> $CORE_PATH/$OUT_PROJECT/command_lines.txt
 echo $CMD | bash
-
-# $SAMTOOLS_DIR/bcftools/vcfutils.pl qstats $CORE_PATH/$OUT_PROJECT/TEMP/$SM_TAG".Release.Novel.TiTv.vcf" >| \
-# $CORE_PATH/$OUT_PROJECT/REPORTS/TI_TV_MS/$SM_TAG"_Novel_.titv.txt"
-

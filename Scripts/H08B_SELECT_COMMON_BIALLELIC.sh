@@ -13,8 +13,6 @@ CORE_PATH=$5
 PROJECT=$6
 PREFIX=$7
 
-## VCF --variant $CORE_PATH/$PROJECT/MULTI_SAMPLE/$PREFIX".HC.SNP.INDEL.VQSR.vcf"
-
 CMD=$JAVA_1_7'/java -jar'
 CMD=$CMD' '$GATK_DIR'/GenomeAnalysisTK.jar'
 CMD=$CMD' -T SelectVariants'
@@ -30,39 +28,3 @@ CMD=$CMD' -o '$CORE_PATH'/'$PROJECT'/MULTI_SAMPLE/'$PREFIX'.HC.SNP.INDEL.VQSR.CO
 echo $CMD >> $CORE_PATH/$PROJECT/command_lines.txt
 echo >> $CORE_PATH/$PROJECT/command_lines.txt
 echo $CMD | bash
-
-# $JAVA_1_7/java -jar $GATK_DIR/GenomeAnalysisTK.jar \
-# -T SelectVariants \
-# -R $REF_GENOME \
-# --variant $CORE_PATH/$PROJECT/MULTI_SAMPLE/$PREFIX".HC.SNP.INDEL.VQSR.vcf" \
-# -select 'AC > 10' \
-# --restrictAllelesTo BIALLELIC \
-# --disable_auto_index_creation_and_locking_when_reading_rods \
-# -et NO_ET \
-# -K $KEY \
-# -o $CORE_PATH/$PROJECT/MULTI_SAMPLE/$PREFIX".HC.SNP.INDEL.VQSR.COMMON.BIALLELIC.vcf"
-
-
-# COMBINE THESE STEPS
-# $JAVA_1_7/java -jar $GATK_DIR/GenomeAnalysisTK.jar \
-# -T SelectVariants \
-# -R $REF_GENOME \
-# --variant $CORE_PATH/$PROJECT/MULTI_SAMPLE/$PREFIX".HC.INDEL.VQSR.vcf" \
-# -select 'AC > 10' \
-# --restrictAllelesTo BIALLELIC \
-# --disable_auto_index_creation_and_locking_when_reading_rods \
-# -et NO_ET \
-# -K $KEY \
-# -o $CORE_PATH/$PROJECT/MULTI_SAMPLE/$PREFIX".HC.INDEL.VQSR.COMMON.BIALLELIC.vcf"
-#
-#
-# $JAVA_1_7/java -jar $GATK_DIR/GenomeAnalysisTK.jar \
-# -T SelectVariants \
-# -R $REF_GENOME \
-# --variant $CORE_PATH/$PROJECT/MULTI_SAMPLE/$PREFIX".HC.SNV.VQSR.vcf" \
-# -select 'AC > 10' \
-# --restrictAllelesTo BIALLELIC \
-# --disable_auto_index_creation_and_locking_when_reading_rods \
-# -et NO_ET \
-# -K $KEY \
-# -o $CORE_PATH/$PROJECT/MULTI_SAMPLE/$PREFIX".HC.SNV.VQSR.COMMON.BIALLELIC.vcf"

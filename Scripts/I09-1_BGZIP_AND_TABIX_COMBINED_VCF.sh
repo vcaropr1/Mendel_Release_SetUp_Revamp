@@ -23,8 +23,3 @@ echo $CMD1 | bash
 echo $CMD2 >> $CORE_PATH/$PROJECT/command_lines.txt
 echo >> $CORE_PATH/$PROJECT/command_lines.txt
 echo $CMD2 | bash
-
-# $TABIX_DIR/bgzip -c $CORE_PATH/$PROJECT/MULTI_SAMPLE/$PREFIX".BEDsuperset.VQSR.vcf" >| $CORE_PATH/$PROJECT/MULTI_SAMPLE/$PREFIX".BEDsuperset.VQSR.vcf.gz"
-
-# $TABIX_DIR/tabix -p vcf -f $CORE_PATH/$PROJECT/MULTI_SAMPLE/$PREFIX".BEDsuperset.VQSR.vcf.gz"
-

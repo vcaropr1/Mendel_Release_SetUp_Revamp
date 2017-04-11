@@ -23,8 +23,3 @@ echo $CMD1 | bash
 echo $CMD2 >> $CORE_PATH/$OUT_PROJECT/command_lines.txt
 echo >> $CORE_PATH/$OUT_PROJECT/command_lines.txt
 echo $CMD2 | bash
-
-# $TABIX_DIR/bgzip -c $CORE_PATH/$OUT_PROJECT/HC_BAM/$SM_TAG"_MS_OnBait.HC.vcf" \
-# >| $CORE_PATH/$OUT_PROJECT/HC_BAM/$SM_TAG"_MS_OnBait.HC.vcf.gz"
-
-# $TABIX_DIR/tabix -f -p vcf $CORE_PATH/$OUT_PROJECT/HC_BAM/$SM_TAG"_MS_OnBait.HC.vcf.gz"

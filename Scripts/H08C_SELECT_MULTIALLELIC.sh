@@ -28,37 +28,3 @@ CMD=$CMD' -o '$CORE_PATH'/'$PROJECT'/MULTI_SAMPLE/'$PREFIX'.HC.SNP.INDEL.VQSR.MU
 echo $CMD >> $CORE_PATH/$PROJECT/command_lines.txt
 echo >> $CORE_PATH/$PROJECT/command_lines.txt
 echo $CMD | bash
-
-#COMBINE THESE TWO STEPS
-
-# $JAVA_1_7/java -jar $GATK_DIR/GenomeAnalysisTK.jar \
-# -T SelectVariants \
-# -R $REF_GENOME \
-# --variant $CORE_PATH/$PROJECT/MULTI_SAMPLE/$PREFIX".HC.SNP.INDEL.VQSR.vcf" \
-# --restrictAllelesTo MULTIALLELIC \
-# --disable_auto_index_creation_and_locking_when_reading_rods \
-# -et NO_ET \
-# -K $KEY \
-# -o $CORE_PATH/$PROJECT/MULTI_SAMPLE/$PREFIX".HC.SNP.INDEL.VQSR.MULTIALLELIC.vcf"
-
-
-# $JAVA_1_7/java -jar $GATK_DIR/GenomeAnalysisTK.jar \
-# -T SelectVariants \
-# -R $REF_GENOME \
-# --variant $CORE_PATH/$PROJECT/MULTI_SAMPLE/$PREFIX".HC.INDEL.VQSR.vcf" \
-# --restrictAllelesTo MULTIALLELIC \
-# --disable_auto_index_creation_and_locking_when_reading_rods \
-# -et NO_ET \
-# -K $KEY \
-# -o $CORE_PATH/$PROJECT/MULTI_SAMPLE/$PREFIX".HC.INDEL.VQSR.MULTIALLELIC.vcf"
-#
-#
-# $JAVA_1_7/java -jar $GATK_DIR/GenomeAnalysisTK.jar \
-# -T SelectVariants \
-# -R $REF_GENOME \
-# --variant $CORE_PATH/$PROJECT/MULTI_SAMPLE/$PREFIX".HC.SNV.VQSR.vcf" \
-# --restrictAllelesTo MULTIALLELIC \
-# --disable_auto_index_creation_and_locking_when_reading_rods \
-# -et NO_ET \
-# -K $KEY \
-# -o $CORE_PATH/$PROJECT/MULTI_SAMPLE/$PREFIX".HC.SNV.VQSR.MULTIALLELIC.vcf"

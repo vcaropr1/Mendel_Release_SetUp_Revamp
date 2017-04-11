@@ -32,17 +32,3 @@ CMD=$CMD' -o '$CORE_PATH'/'$OUT_PROJECT'/INDEL/RELEASE/FILTERED_ON_BAIT/'$SM_TAG
 echo $CMD >> $CORE_PATH/$OUT_PROJECT/command_lines.txt
 echo >> $CORE_PATH/$OUT_PROJECT/command_lines.txt
 echo $CMD | bash
-
-# $JAVA_1_7/java -jar $GATK_DIR/GenomeAnalysisTK.jar \
-# -T SelectVariants \
-# --disable_auto_index_creation_and_locking_when_reading_rods \
-# -et NO_ET \
-# -K $KEY \
-# -R $REF_GENOME \
-# -sn $SM_TAG \
-# -ef \
-# -env \
-# --keepOriginalAC \
-# -selectType INDEL \
-# --variant $CORE_PATH/$OUT_PROJECT/VCF/RELEASE/FILTERED_ON_BAIT/$SM_TAG"_MS_OnBait.vcf" \
-# -o $CORE_PATH/$OUT_PROJECT/INDEL/RELEASE/FILTERED_ON_BAIT/$SM_TAG"_MS_OnBait_INDEL.vcf"

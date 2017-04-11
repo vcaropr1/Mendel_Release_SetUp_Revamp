@@ -13,7 +13,6 @@ CORE_PATH=$5
 PROJECT=$6
 PREFIX=$7
 
-
 CMD=$JAVA_1_7'/java'
 CMD=$CMD' -jar '$GATK_3_1_1_DIR'/GenomeAnalysisTK.jar'
 CMD=$CMD' -T CombineVariants'

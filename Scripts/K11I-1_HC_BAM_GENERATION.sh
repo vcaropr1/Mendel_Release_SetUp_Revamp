@@ -34,18 +34,3 @@ CMD=$CMD' -o '$CORE_PATH'/'$OUT_PROJECT'/HC_BAM/'$SM_TAG'_MS_OnBait.HC.vcf'
 echo $CMD >> $CORE_PATH/$OUT_PROJECT/command_lines.txt
 echo >> $CORE_PATH/$OUT_PROJECT/command_lines.txt
 echo $CMD | bash
-
-# $JAVA_1_7/java -jar $GATK_DIR/GenomeAnalysisTK.jar \
-# -T HaplotypeCaller \
-# -R $REF_GENOME \
-# --input_file $CORE_PATH/$OUT_PROJECT/BAM/AGGREGATE/$SM_TAG".bam" \
-# --dbsnp $DBSNP \
-# -L $CORE_PATH/$OUT_PROJECT/TEMP/$SM_TAG"_MS_OnBait.vcf.bed" \
-# --disable_auto_index_creation_and_locking_when_reading_rods \
-# -et NO_ET \
-# -K $KEY \
-# -stand_call_conf 0 \
-# -stand_emit_conf 0 \
-# --bamOutput $CORE_PATH/$OUT_PROJECT/HC_BAM/$SM_TAG"_MS_OnBait.HC.bam" \
-# -pairHMM VECTOR_LOGLESS_CACHING \
-# -o $CORE_PATH/$OUT_PROJECT/HC_BAM/$SM_TAG"_MS_OnBait.HC.vcf"

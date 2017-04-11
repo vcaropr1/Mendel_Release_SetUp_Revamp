@@ -4,7 +4,7 @@ PROJECT=$1 # The project folder that is housing all the multi-sample goods For n
 SAMPLE_SHEET=$2 # MS sample sheet
 PREFIX=$3 # Name you want all the multi-sample files to be names
 NUMBER_OF_BED_FILES=$4
-# GVCF_LIST=$5
+
 if [[ $NUMBER_OF_BED_FILES -lt 100 ]]
 	then
 	NUMBER_OF_BED_FILES=100
@@ -37,7 +37,6 @@ ExAC="/isilon/sequencing/ExAC/Release_0.3/ExAC.r0.3.sites.vep.vcf.gz"
 KNOWN_SNPS="/isilon/sequencing/GATK_resource_bundle/2.8/b37/dbsnp_138.b37.excluding_sites_after_129.vcf"
 VERACODE_CSV="/isilon/sequencing/CIDRSeqSuiteSoftware/resources/Veracode_hg18_hg19.csv"
 MERGED_MENDEL_BED_FILE="/isilon/sequencing/Seq_Proj/M_Valle_MendelianDisorders_SeqWholeExome_120511_GATK_3_3-0/BED_Files/BAITS_Merged_S03723314_S06588914.bed"
-# MERGED_MENDEL_BED_FILE="/isilon/sequencing/VITO/temp/one_off_mendel_merged_sorted_and_formatted_ALLMERGED.bed" #Used for the unsolved samples
 ############################################################################
 ################# Start of Combine Gvcf Functions ##########################
 ############################################################################
@@ -88,37 +87,6 @@ echo \
  $KEY $CORE_PATH $PROJECT $GVCF_LIST \
  $PREFIX $BED_FILE_NAME
  }
-
-############ START OF THE NEW GVCF SPLIT#####################
-
-# COMBINE_GVCF_FOR_MINI_GVCF(){
-# echo \
-#  qsub \
-#  -N 'A01_COMBINE_GVCF_'$PROJECT'_'$BED_FILE_NAME'_'$MINI_GVCF_LIST \
-#  -j y -o $CORE_PATH/$PROJECT/LOGS/$PREFIX'_A01_COMBINE_GVCF_'$BED_FILE_NAME'_'$MINI_GVCF_LIST.log \
-#  $SCRIPT_DIR/A01_COMBINE_GVCF.sh \
-#  $JAVA_1_7 $GATK_DIR $REF_GENOME \
-#  $KEY $CORE_PATH $PROJECT $MINI_GVCF_LIST \
-#  $PREFIX $BED_FILE_NAME	
-# }
-
-# GENERATE_GENOTYPE_GVCF_HOLDID(){
-# 	GENOTYPE_GVCF_HOLDID=$GENOTYPE_GVCF_HOLDID'A01_COMBINE_GVCF_'$PROJECT'_'$BED_FILE_NAME'_'$MINI_GVCF_LIST','
-# }
-
-# This will be similar to the combine variants command with this damn list
-# GENOTYPE_GVCF(){
-# 	MINI_GVCF_LIST_FILES=`ls $CORE_PATH/$PROJECT/TEMP/GVCF_LIST_SPLIT/SPLITTED_GVCF_LIST*`
-# echo \
-#  qsub \
-#  -N B02_GENOTYPE_GVCF_$PROJECT'_'$BED_FILE_NAME \
-#  -hold_jid $GENOTYPE_GVCF_HOLDID \
-#  -j y -o $CORE_PATH/$PROJECT/LOGS/$PREFIX'_B02_GENOTYPE_GVCF_'$BED_FILE_NAME.log \
-#  $SCRIPT_DIR/B02_GENOTYPE_GVCF.sh \
-#  $JAVA_1_7 $GATK_DIR $REF_GENOME \
-#  $KEY $CORE_PATH $PROJECT \
-#  $PREFIX $BED_FILE_NAME $MINI_GVCF_LIST_FILES
-# }
 
 ############ END OF THE NEW GVCF SPLIT TO TEST #####################
 
@@ -456,9 +424,6 @@ echo \
  $CORE_PATH $PROJECT_SAMPLE $SM_TAG
 }
 
-# qsub -q rnd.q,test.q -pe slots 3 demo.sh 
-# qsub -q rnd.q@c6100-18.cm.cluster  -pe slots 5 demo.sh 
-
 SETUP_AND_RUN_ANNOVAR() {
 echo \
  qsub \
@@ -619,20 +584,6 @@ GENOTYPE_GVCF
 VARIANT_ANNOTATOR
 GENERATE_COMBINE_VARIANTS_HOLD_ID
  done
-
-# WRAP AROUND FOR COMBINE GVCF LIST TO KEEP 200 max
-# for BED_FILE in $(ls $CORE_PATH/$PROJECT/TEMP/BED_FILE_SPLIT/SPLITTED_BED_FILE*);
-#  do
-# BED_FILE_NAME=$(basename $BED_FILE .bed)
-# for MINI_GVCF_LIST in $(ls $CORE_PATH/$PROJECT/TEMP/GVCF_LIST_SPLIT/SPLITTED_GVCF_LIST*)
-# do
-# COMBINE_GVCF_FOR_MINI_GVCF
-# GENERATE_GENOTYPE_GVCF_HOLDID
-# done
-# GENOTYPE_GVCF
-# VARIANT_ANNOTATOR
-# GENERATE_COMBINE_VARIANTS_HOLD_ID
-#  done
 
 COMBINE_VARIANTS
 VARIANT_RECALIBRATOR_SNV
